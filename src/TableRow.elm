@@ -38,5 +38,11 @@ view { checkStatus, id, name, lastRun } =
     , td [] [ text name ]
     , td [] [ text "0%" ]
     , td [] [ text <| toString lastRun ]
-    , td [] [ button [ onClick (RunJob id) ] [ text "Run" ] ]
+    , td []
+        [ button
+            [ class "btn btn-primary"
+            , onClick (RunJob id)
+            ]
+            [ text "Run" ]
+        ]
     ]

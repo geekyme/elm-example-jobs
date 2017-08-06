@@ -1,6 +1,7 @@
 module Main exposing (..)
 
 import Html exposing (Html, text, div, img, table, tbody)
+import Html.Attributes exposing (..)
 import TableHead
 import TableRow
 import Dict
@@ -64,9 +65,11 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-  table []
-    [ Html.map TableHeadMsg TableHead.view
-    , tbody [] (renderRows model)
+  div [ class "container" ]
+    [ table [ class "table table-striped table-bordered" ]
+        [ Html.map TableHeadMsg TableHead.view
+        , tbody [] (renderRows model)
+        ]
     ]
 
 renderRows : Model -> List (Html Msg)
